@@ -1,0 +1,493 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+
+/*==================
+-----CSS RESET------
+====================*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  padding: 0 1.5rem;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+a:not([class]) {
+  text-decoration: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*=====================
+-----VARIBLE-----------
+=======================*/
+
+$Soft-red: hsl(7, 99%, 70%);
+$Dark-desaturated-cyan: hsl(167, 40%, 24%);
+$Dark-blue: hsl(198, 62%, 26%);
+$Dark-moderate-cyan-footer: hsl(168, 34%, 41%);
+$white: #fff;
+$yellow: hsl(51, 100%, 49%);
+$Very-dark-desaturated-blue: hsl(212, 27%, 19%);
+$Very-dark-grayish-blue: hsl(213, 9%, 39%);
+$Dark-grayish-blue: hsl(232, 10%, 55%);
+$Grayish-blue: hsl(210, 4%, 67%);
+
+$fraunces: "Fraunces", serif;
+$barlow: "Barlow", sans-serif;
+
+/*=====================
+-----MIXING-----------
+=======================*/
+
+@mixin desktop {
+  @media (min-width: 750px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 1200px) and (min-width: 750px) {
+    @content;
+  }
+}
+
+@mixin sm-tablet {
+  @media (max-width: 1000px) and (min-width: 750px) {
+    @content;
+  }
+}
+
+/*=====================
+-----MOBILE FIRST------
+=======================*/
+
+main {
+  background: no-repeat url(../images/mobile/image-header.jpg) top/100%;
+  @include desktop() {
+    background: no-repeat url(../images/desktop/image-header.jpg) center/cover;
+    min-height: 100vh;
+
+    .toggle-nav {
+      display: none;
+    }
+
+    .navbar {
+      display: flex;
+      position: unset;
+      background: none;
+      width: auto;
+      margin: 0;
+      padding: 2rem 0;
+
+      ul {
+        flex-direction: row;
+        gap: 2.5rem;
+
+        li {
+          a {
+            color: $white;
+          }
+        }
+
+        .contact {
+          a {
+            background: $white;
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+    position: relative;
+    padding: 1.5rem 0;
+
+    div {
+      color: $white;
+      cursor: pointer;
+
+      .hide {
+        display: none;
+      }
+    }
+
+    .changeIcon {
+      .show-nav {
+        display: none;
+      }
+
+      .hide {
+        display: block;
+      }
+    }
+
+    .hide-nav {
+      display: block;
+    }
+
+    nav {
+      position: absolute;
+      background-color: $white;
+      width: 90vw;
+      margin: auto;
+      top: 5rem;
+      padding: 2.5rem 0;
+      text-align: center;
+      display: none;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -4rem;
+          right: 0;
+          width: 3rem;
+          height: 3rem;
+          transform: rotate(270deg);
+          background: linear-gradient(45deg, #fff 50%, transparent 50%);
+        }
+
+        li {
+          a {
+            color: $Dark-grayish-blue;
+            font-family: $barlow;
+
+            &:hover {
+              color: $Very-dark-desaturated-blue;
+            }
+          }
+        }
+        .contact {
+          a {
+            background-color: $yellow;
+            color: $Very-dark-desaturated-blue;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-family: $fraunces;
+
+            &:hover {
+              color: $white;
+              background: #72cefcff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  article {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4.5rem 0;
+
+    @include desktop() {
+      padding: 2rem 0;
+      gap: 8rem;
+    }
+
+    h1 {
+      @include desktop() {
+        font-size: 4rem;
+        letter-spacing: 2px;
+      }
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-family: $fraunces;
+    }
+  }
+}
+
+#services {
+  @include desktop() {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .grid-1 {
+      grid-area: 1;
+    }
+  }
+
+  .discription-box {
+    padding: 1rem 0;
+    @include desktop() {
+      padding: 0 8rem;
+      text-align: left;
+      align-self: center;
+      p {
+        padding: 0;
+      }
+    }
+
+    @include tablet() {
+      padding: 0 2rem;
+    }
+
+    h2 {
+      @include desktop() {
+        font-size: 3rem;
+        padding: 0;
+      }
+      @include sm-tablet() {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      font-size: 2rem;
+      font-family: $fraunces;
+      color: $Very-dark-desaturated-blue;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      color: $Dark-grayish-blue;
+      font-family: $barlow;
+      margin-bottom: 1.5rem;
+      @include sm-tablet() {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    a {
+      text-transform: uppercase;
+      font-family: $fraunces;
+      color: $Very-dark-desaturated-blue;
+      position: relative;
+      padding: 0 0.5rem;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0rem;
+        left: 0;
+        width: 100%;
+        height: 0.5rem;
+        z-index: -1;
+        border-radius: 10px;
+        background: hsla(51, 100%, 49%, 0.349);
+      }
+      &:hover {
+        &::after {
+          background: $yellow;
+        }
+      }
+    }
+
+    .change {
+      text-decoration: none;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0rem;
+        left: 0;
+        width: 100%;
+        height: 0.5rem;
+        z-index: -1;
+        border-radius: 10px;
+        background: hsla(7, 99%, 70%, 0.486);
+      }
+      &:hover {
+        &::after {
+          background: $Soft-red;
+        }
+      }
+    }
+  }
+
+  .color-dark-blue {
+    h3,
+    p {
+      color: $Dark-blue;
+    }
+  }
+  .services {
+    position: relative;
+    color: $Dark-desaturated-cyan;
+
+    h3,
+    p {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4rem;
+    }
+
+    h3 {
+      bottom: 12rem;
+      font-size: 2rem;
+      font-family: $fraunces;
+      @include tablet() {
+        bottom: 8rem;
+      }
+      @include sm-tablet() {
+        bottom: 7rem;
+      }
+    }
+    p {
+      font-family: $barlow;
+      @include desktop() {
+        padding: 0 10rem;
+        bottom: 5rem;
+      }
+
+      @include tablet() {
+        padding: 0 4rem;
+        bottom: 2rem;
+      }
+
+      @include sm-tablet() {
+        padding: 0 1rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+.testimonial {
+  padding: 2rem 0;
+  @include desktop() {
+    padding: 8rem 0;
+    article {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 85vw;
+      margin: auto;
+      gap: 1rem;
+      @include sm-tablet() {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  h4 {
+    @include desktop() {
+      letter-spacing: 8px;
+    }
+    font-size: 1.3rem;
+    font-family: $fraunces;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $Grayish-blue;
+  }
+
+  div {
+    margin: 2rem 0;
+    .avatar-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        border-radius: 50%;
+        width: 5rem;
+      }
+    }
+
+    p {
+      color: $Very-dark-grayish-blue;
+      margin: 1rem 0;
+      font-family: $barlow;
+    }
+
+    h5 {
+      color: $Dark-grayish-blue;
+
+      span {
+        color: $Very-dark-desaturated-blue;
+        font-family: $fraunces;
+        display: block;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @include desktop() {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+footer {
+  background: $Dark-moderate-cyan-footer;
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  .logo {
+    filter: invert(27%) sepia(5%) saturate(2878%) hue-rotate(59deg)
+      brightness(40%) contrast(100%);
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    li {
+      a {
+        color: $Dark-desaturated-cyan;
+        font-family: $barlow;
+        transition: all 0.5s ease;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+}

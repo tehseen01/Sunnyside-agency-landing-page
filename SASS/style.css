@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+/*==================
+-----CSS RESET------
+====================*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  padding: 0 1.5rem;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+a:not([class]) {
+  -webkit-text-decoration: auto;
+          text-decoration: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*=====================
+-----VARIBLE-----------
+=======================*/
+/*=====================
+-----MIXING-----------
+=======================*/
+/*=====================
+-----MOBILE FIRST------
+=======================*/
+main {
+  background: no-repeat url(../images/mobile/image-header.jpg) top/100%;
+}
+@media (min-width: 750px) {
+  main {
+    background: no-repeat url(../images/desktop/image-header.jpg) center/cover;
+    min-height: 100vh;
+  }
+  main .toggle-nav {
+    display: none;
+  }
+  main .navbar {
+    display: flex;
+    position: unset;
+    background: none;
+    width: auto;
+    margin: 0;
+    padding: 2rem 0;
+  }
+  main .navbar ul {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+  main .navbar ul li a {
+    color: #fff;
+  }
+  main .navbar ul .contact a {
+    background: #fff;
+  }
+}
+main header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  margin: auto;
+  position: relative;
+  padding: 1.5rem 0;
+}
+main header div {
+  color: #fff;
+  cursor: pointer;
+}
+main header div .hide {
+  display: none;
+}
+main header .changeIcon .show-nav {
+  display: none;
+}
+main header .changeIcon .hide {
+  display: block;
+}
+main header .hide-nav {
+  display: block;
+}
+main header nav {
+  position: absolute;
+  background-color: #fff;
+  width: 90vw;
+  margin: auto;
+  top: 5rem;
+  padding: 2.5rem 0;
+  text-align: center;
+  display: none;
+}
+main header nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+main header nav ul::after {
+  content: "";
+  position: absolute;
+  top: -4rem;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  transform: rotate(270deg);
+  background: linear-gradient(45deg, #fff 50%, transparent 50%);
+}
+main header nav ul li a {
+  color: hsl(232deg, 10%, 55%);
+  font-family: "Barlow", sans-serif;
+}
+main header nav ul li a:hover {
+  color: hsl(212deg, 27%, 19%);
+}
+main header nav ul .contact a {
+  background-color: hsl(51deg, 100%, 49%);
+  color: hsl(212deg, 27%, 19%);
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: "Fraunces", serif;
+}
+main header nav ul .contact a:hover {
+  color: #fff;
+  background: #72cefc;
+}
+main article {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4.5rem 0;
+}
+@media (min-width: 750px) {
+  main article {
+    padding: 2rem 0;
+    gap: 8rem;
+  }
+}
+main article h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-family: "Fraunces", serif;
+}
+@media (min-width: 750px) {
+  main article h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+  }
+}
+
+@media (min-width: 750px) {
+  #services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #services .grid-1 {
+    grid-area: 1;
+  }
+}
+#services .discription-box {
+  padding: 1rem 0;
+}
+@media (min-width: 750px) {
+  #services .discription-box {
+    padding: 0 8rem;
+    text-align: left;
+    align-self: center;
+  }
+  #services .discription-box p {
+    padding: 0;
+  }
+}
+@media (max-width: 1200px) and (min-width: 750px) {
+  #services .discription-box {
+    padding: 0 2rem;
+  }
+}
+#services .discription-box h2 {
+  font-size: 2rem;
+  font-family: "Fraunces", serif;
+  color: hsl(212deg, 27%, 19%);
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 750px) {
+  #services .discription-box h2 {
+    font-size: 3rem;
+    padding: 0;
+  }
+}
+@media (max-width: 1000px) and (min-width: 750px) {
+  #services .discription-box h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+#services .discription-box p {
+  color: hsl(232deg, 10%, 55%);
+  font-family: "Barlow", sans-serif;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 1000px) and (min-width: 750px) {
+  #services .discription-box p {
+    margin-bottom: 0.5rem;
+  }
+}
+#services .discription-box a {
+  text-transform: uppercase;
+  font-family: "Fraunces", serif;
+  color: hsl(212deg, 27%, 19%);
+  position: relative;
+  padding: 0 0.5rem;
+}
+#services .discription-box a:after {
+  content: "";
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  z-index: -1;
+  border-radius: 10px;
+  background: hsla(51deg, 100%, 49%, 0.349);
+}
+#services .discription-box a:hover::after {
+  background: hsl(51deg, 100%, 49%);
+}
+#services .discription-box .change {
+  text-decoration: none;
+}
+#services .discription-box .change:after {
+  content: "";
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  z-index: -1;
+  border-radius: 10px;
+  background: hsla(7deg, 99%, 70%, 0.486);
+}
+#services .discription-box .change:hover::after {
+  background: hsl(7deg, 99%, 70%);
+}
+#services .color-dark-blue h3,
+#services .color-dark-blue p {
+  color: hsl(198deg, 62%, 26%);
+}
+#services .services {
+  position: relative;
+  color: hsl(167deg, 40%, 24%);
+}
+#services .services h3,
+#services .services p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4rem;
+}
+#services .services h3 {
+  bottom: 12rem;
+  font-size: 2rem;
+  font-family: "Fraunces", serif;
+}
+@media (max-width: 1200px) and (min-width: 750px) {
+  #services .services h3 {
+    bottom: 8rem;
+  }
+}
+@media (max-width: 1000px) and (min-width: 750px) {
+  #services .services h3 {
+    bottom: 7rem;
+  }
+}
+#services .services p {
+  font-family: "Barlow", sans-serif;
+}
+@media (min-width: 750px) {
+  #services .services p {
+    padding: 0 10rem;
+    bottom: 5rem;
+  }
+}
+@media (max-width: 1200px) and (min-width: 750px) {
+  #services .services p {
+    padding: 0 4rem;
+    bottom: 2rem;
+  }
+}
+@media (max-width: 1000px) and (min-width: 750px) {
+  #services .services p {
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+}
+
+.testimonial {
+  padding: 2rem 0;
+}
+@media (min-width: 750px) {
+  .testimonial {
+    padding: 8rem 0;
+  }
+  .testimonial article {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 85vw;
+    margin: auto;
+    gap: 1rem;
+  }
+}
+@media (min-width: 750px) and (max-width: 1000px) and (min-width: 750px) {
+  .testimonial article {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.testimonial h4 {
+  font-size: 1.3rem;
+  font-family: "Fraunces", serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: hsl(210deg, 4%, 67%);
+}
+@media (min-width: 750px) {
+  .testimonial h4 {
+    letter-spacing: 8px;
+  }
+}
+.testimonial div {
+  margin: 2rem 0;
+}
+.testimonial div .avatar-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial div .avatar-box img {
+  border-radius: 50%;
+  width: 5rem;
+}
+.testimonial div p {
+  color: hsl(213deg, 9%, 39%);
+  margin: 1rem 0;
+  font-family: "Barlow", sans-serif;
+}
+.testimonial div h5 {
+  color: hsl(232deg, 10%, 55%);
+}
+.testimonial div h5 span {
+  color: hsl(212deg, 27%, 19%);
+  font-family: "Fraunces", serif;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 750px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+footer {
+  background: hsl(168deg, 34%, 41%);
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+footer .logo {
+  filter: invert(27%) sepia(5%) saturate(2878%) hue-rotate(59deg) brightness(40%) contrast(100%);
+}
+footer ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+footer ul li a {
+  color: hsl(167deg, 40%, 24%);
+  font-family: "Barlow", sans-serif;
+  transition: all 0.5s ease;
+}
+footer ul li a:hover {
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

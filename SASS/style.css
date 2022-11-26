@@ -136,6 +136,11 @@ main header nav ul {
   gap: 1.5rem;
   position: relative;
 }
+@media (min-width: 750px) {
+  main header nav ul::after {
+    display: none;
+  }
+}
 main header nav ul::after {
   content: "";
   position: absolute;

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
-
+@import "./_varibles.sass";
 /*==================
 -----CSS RESET------
 ====================*/
@@ -56,24 +56,6 @@ textarea,
 select {
   font: inherit;
 }
-
-/*=====================
------VARIBLE-----------
-=======================*/
-
-$Soft-red: hsl(7, 99%, 70%);
-$Dark-desaturated-cyan: hsl(167, 40%, 24%);
-$Dark-blue: hsl(198, 62%, 26%);
-$Dark-moderate-cyan-footer: hsl(168, 34%, 41%);
-$white: #fff;
-$yellow: hsl(51, 100%, 49%);
-$Very-dark-desaturated-blue: hsl(212, 27%, 19%);
-$Very-dark-grayish-blue: hsl(213, 9%, 39%);
-$Dark-grayish-blue: hsl(232, 10%, 55%);
-$Grayish-blue: hsl(210, 4%, 67%);
-
-$fraunces: "Fraunces", serif;
-$barlow: "Barlow", sans-serif;
 
 /*=====================
 -----MIXING-----------
@@ -470,11 +452,14 @@ footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 
-  .logo {
-    filter: invert(27%) sepia(5%) saturate(2878%) hue-rotate(59deg)
-      brightness(40%) contrast(100%);
+  @include desktop() {
+    padding: 5rem 0;
+
+    .logo {
+      width: 12rem;
+    }
   }
 
   ul {
